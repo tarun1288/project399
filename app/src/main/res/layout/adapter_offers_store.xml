@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="@dimen/_6sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="@dimen/_130sdp"
+        android:scaleType="fitXY"
+        android:layout_height="@dimen/_140sdp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_toRightOf="@+id/image_view"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product Name"
+        android:textColor="#000"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:textColor="#000"
+        android:layout_toRightOf="@+id/image_view"
+        android:layout_below="@id/tv_name"
+        android:textSize="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:text="Product Price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:textColor="#CA3131"
+        android:layout_toRightOf="@+id/image_view"
+        android:layout_below="@id/tv_price"
+        android:textSize="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:text="Sale 50% "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_add_to_cart"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_below="@+id/tv_status"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:background="@drawable/button_1"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="add to cart"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

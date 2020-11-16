@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.LoginActivity">
+
+
+        <ImageView
+            android:id="@+id/iv_image_view"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_15sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/slash" />
+
+
+        <TextView
+            android:layout_marginLeft="@dimen/_115sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="User Name"
+            android:textSize="19sp"
+            />
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_below="@+id/iv_image_view"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Email Id"
+            android:textSize="19sp"
+            />
+
+        <RadioGroup
+            android:id="@+id/radioSex"
+            android:layout_below="@+id/et_email"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_dob"
+            android:layout_below="@+id/radioSex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_design"
+            android:text="Date of Birth"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            />
+
+
+        <EditText
+            android:id="@+id/et_phone_no"
+            android:layout_below="@+id/tv_dob"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Phone Number"
+            android:textSize="19sp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_below="@+id/et_phone_no"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Password"
+            android:textSize="19sp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_password"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_55sdp"
+            android:layout_marginRight="@dimen/_55sdp"
+            android:background="@drawable/buttons"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_15sdp"
+            android:text="EDIT PROFILE"
+            android:textColor="@android:color/white"
+            />
+
+
+    </RelativeLayout>
+</ScrollView>

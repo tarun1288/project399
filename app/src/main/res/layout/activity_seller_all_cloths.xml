@@ -1,0 +1,51 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/all_cloths"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btn_check_out"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@+id/et_password"
+            android:layout_margin="@dimen/_15sdp"
+            android:gravity="center"
+            android:background="@drawable/buttons"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Add"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@+id/et_password"
+            android:layout_margin="@dimen/_15sdp"
+            android:gravity="center"
+            android:background="@drawable/buttons"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Delete"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

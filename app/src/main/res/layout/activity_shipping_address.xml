@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.PaymentPageActivity">
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:text="Enter Your Shipping Address"
+            android:textSize="@dimen/_18sdp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_name"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint=" Full  Name"
+            android:textSize="19sp"
+            />
+
+        <EditText
+            android:id="@+id/et_add_line_1"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Address Line 1"
+            android:textSize="19sp"
+            />
+
+
+        <EditText
+            android:id="@+id/et_add_line_2"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Address Line 2"
+            android:textSize="19sp"
+            />
+
+        <EditText
+            android:id="@+id/et_city"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="City"
+            android:textSize="19sp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/etpincode"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Pincode"
+            android:textSize="19sp"
+            />
+
+        <EditText
+            android:id="@+id/et_phno"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_12sdp"
+            android:hint="Phno"
+            android:textSize="19sp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_upload"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_40sdp"
+            android:background="@drawable/buttons"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_15sdp"
+            android:text="Confirm"
+            android:textColor="@android:color/white"
+            />
+
+    </LinearLayout>
+</ScrollView>
