@@ -1,15 +1,14 @@
 package com.clothing.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.clothing.R;
 
@@ -18,7 +17,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class LoginActivity extends AppCompatActivity {
     Button login_btn;
     RadioButton radioadmin,radiouser;
-    CheckBox cb_admin,cb_user;
+    RadioButton cb_admin,cb_user;
     TextView tv_sign_up,tv_forget_pass;
     String str;
 
@@ -40,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_forget_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
             }
         });
 
@@ -86,8 +85,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void init(){
         login_btn=(Button)findViewById(R.id.login_btn);
-        cb_admin=(CheckBox)findViewById(R.id.cb_admin);
-        cb_user=(CheckBox)findViewById(R.id.cb_user);
+        cb_admin=(RadioButton)findViewById(R.id.cb_admin);
+        cb_user=(RadioButton)findViewById(R.id.cb_user);
 
         tv_sign_up=(TextView)findViewById(R.id.tv_sign_up);
         tv_forget_pass=(TextView)findViewById(R.id.tv_forget_pass);

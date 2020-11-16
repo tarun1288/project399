@@ -1,11 +1,11 @@
 package com.clothing.activities;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.clothing.R;
 import com.clothing.adapters.AdminAllClothessAdapter;
