@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
+import com.clothing.adapters.AdminAllClothessAdapter;
 import com.clothing.models.AllClothsPojo;
 
 import java.util.ArrayList;
