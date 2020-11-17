@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.clothing.R;
+import com.clothing.activities.CustomersCartActivity;
 import com.clothing.models.AllClothsPojo;
 
 import java.util.List;
