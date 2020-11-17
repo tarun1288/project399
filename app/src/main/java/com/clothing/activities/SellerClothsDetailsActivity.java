@@ -23,7 +23,7 @@ public class SellerClothsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_cloths_details);
 
-        getSupportActionBar().setTitle("Cloths Details");
+        getSupportActionBar().setTitle("Cloths Details.");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
