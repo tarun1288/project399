@@ -24,7 +24,7 @@ public class OffersStoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offers_store);
 
-        getSupportActionBar().setTitle("Offers Store!!");
+        getSupportActionBar().setTitle("Offers Store");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
