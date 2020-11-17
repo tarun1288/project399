@@ -18,6 +18,9 @@
         android:title="My Orders"/>
 
 
+    <item android:id="@+id/search"
+        android:icon="@drawable/ic_my_orders"
+        android:title="Search"/>
 
     <item android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
