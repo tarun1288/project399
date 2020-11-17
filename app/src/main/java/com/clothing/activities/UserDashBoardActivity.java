@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
-import com.clothing.adapters.OffersStoreAdapter;
 import com.clothing.models.AllClothsPojo;
 import com.google.android.material.navigation.NavigationView;
 
