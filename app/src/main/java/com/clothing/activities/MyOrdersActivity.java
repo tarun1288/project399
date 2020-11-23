@@ -67,7 +67,7 @@ public class MyOrdersActivity extends AppCompatActivity {
             public void onResponse(Call<List<MyOrdersPojo>> call, Response<List<MyOrdersPojo>> response) {
                 progressDialog.dismiss();
                 if(response.body()==null){
-                    Toast.makeText(MyOrdersActivity.this,"No data found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyOrdersActivity.this,"No data found.", Toast.LENGTH_SHORT).show();
                 }else {
                     a1=response.body();
                     myOrdersAdapter=new MyOrdersAdapter(MyOrdersActivity.this,a1);  //attach adapter class with therecyclerview
