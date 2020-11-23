@@ -86,7 +86,7 @@ public class SellerAllClothsActivity extends AppCompatActivity {
     }
     public void serverData(){
         progressDialog = new ProgressDialog(SellerAllClothsActivity.this);
-        progressDialog.setMessage("Loading....");
+        progressDialog.setMessage("Loading...");
         progressDialog.show();
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<List<GetAllProductsPojo>> call = service.get_allproducts();
