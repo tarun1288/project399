@@ -25,6 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.clothing.R;
+import com.clothing.api.ApiService;
 import com.clothing.models.ResponseData;
 
 import java.io.File;
