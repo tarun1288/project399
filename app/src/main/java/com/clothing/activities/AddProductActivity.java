@@ -166,7 +166,7 @@ public class AddProductActivity extends AppCompatActivity implements EasyPermiss
     }
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-        Log.d(TAG, "Permission has been denied...");
+        Log.d(TAG, "Permission has been denied");
 
     }
     private void uploadImageToServer(){
