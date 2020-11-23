@@ -58,7 +58,7 @@ public class MyOrdersActivity extends AppCompatActivity {
     }
     public void serverData(){
         progressDialog = new ProgressDialog(MyOrdersActivity.this);
-        progressDialog.setMessage("Loading....");
+        progressDialog.setMessage("Loading...");
         progressDialog.show();
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<List<MyOrdersPojo>> call = service.getmyorders(session);
