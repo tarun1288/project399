@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.clothing.R;
-import com.clothing.api.ApiService;
 import com.clothing.api.RetroClient;
 import com.clothing.models.ResponseData;
 

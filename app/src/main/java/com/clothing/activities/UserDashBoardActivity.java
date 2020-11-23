@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
 import com.clothing.adapters.UserDashBoardAdapter;
-import com.clothing.api.ApiService;
 import com.clothing.api.RetroClient;
 import com.clothing.models.GetAllProductsPojo;
 import com.google.android.material.navigation.NavigationView;
