@@ -73,7 +73,7 @@ public class SellerDashBoardActivity extends AppCompatActivity {
 
     public void getAllProducts(){
         pd= new ProgressDialog(SellerDashBoardActivity.this);
-        pd.setTitle("Loading...");
+        pd.setTitle("Loading....");
         pd.show();
         ApiService apiService = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<List<GetAllProductsPojo>> call = apiService.get_allproducts();
