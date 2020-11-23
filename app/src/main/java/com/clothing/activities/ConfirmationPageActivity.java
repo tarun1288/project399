@@ -27,7 +27,7 @@ public class ConfirmationPageActivity extends AppCompatActivity {
         btn_give_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConfirmationPageActivity.this, CustomersFeedbackActivity.class));
+                startActivity(new Intent(ConfirmationPageActivity.this,CustomersFeedbackActivity.class));
             }
         });
 

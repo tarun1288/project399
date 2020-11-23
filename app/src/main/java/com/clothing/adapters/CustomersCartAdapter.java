@@ -1,5 +1,6 @@
 package com.clothing.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -41,6 +42,8 @@ public class CustomersCartAdapter extends RecyclerView.Adapter<CustomersCartAdap
         return new MyviewHolder(view);
     }
 
+    int minteger = 0;
+
     @Override
     public void onBindViewHolder(@NonNull MyviewHolder holder, final int pos) {
 
@@ -48,6 +51,33 @@ public class CustomersCartAdapter extends RecyclerView.Adapter<CustomersCartAdap
         holder.tv_price.setText(a1.get(pos).getPrice());
         //holder.tv_status.setText(a1.get(pos).getStatus());
         Glide.with(context).load(a1.get(pos).getImage()).into(holder.image_view);
+
+
+
+       holder.increase.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                int count= Integer.parseInt(String.valueOf(holder.integer_number.getText()));
+                count++;
+                holder.integer_number.setText("" + count);
+            }
+        });
+
+        holder.decrease.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                int count= Integer.parseInt(String.valueOf(holder.integer_number.getText()));
+                if (count == 1) {
+                    holder.integer_number.setText("1");
+                } else {
+                    count -= 1;
+                    holder.integer_number.setText("" + count);
+                }
+            }
+        });
+       // holder.integer_number.setText(String.valueOf(minteger));
 
         /*holder.image_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +107,8 @@ public class CustomersCartAdapter extends RecyclerView.Adapter<CustomersCartAdap
         TextView tv_name,tv_price,tv_status;
         ImageView image_view;
         Button btn_edit;
+        Button decrease,increase;
+        TextView integer_number;
 
 
         public MyviewHolder(View itemView) {
@@ -88,6 +120,10 @@ public class CustomersCartAdapter extends RecyclerView.Adapter<CustomersCartAdap
             tv_name=(TextView)itemView.findViewById(R.id.tv_name);
             tv_price=(TextView)itemView.findViewById(R.id.tv_price);
             tv_status=(TextView)itemView.findViewById(R.id.tv_status);
+            integer_number=(TextView)itemView.findViewById(R.id.integer_number);
+
+            decrease=(Button)itemView.findViewById(R.id.decrease);
+            increase=(Button)itemView.findViewById(R.id.increase);
 
             Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/Lato-Medium.ttf");
             tv_price.setTypeface(custom_font);

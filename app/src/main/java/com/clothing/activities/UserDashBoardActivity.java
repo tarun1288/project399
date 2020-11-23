@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,12 +18,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
-import com.clothing.adapters.OffersStoreAdapter;
-import com.clothing.models.AllClothsPojo;
+import com.clothing.adapters.UserDashBoardAdapter;
+import com.clothing.api.ApiService;
+import com.clothing.api.RetroClient;
+import com.clothing.models.GetAllProductsPojo;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserDashBoardActivity extends AppCompatActivity {
     private ActionBarDrawerToggle t;
@@ -32,48 +39,25 @@ public class UserDashBoardActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String session;
     RecyclerView rv_cust_products;
-    List<AllClothsPojo> a1;
-    OffersStoreAdapter offersStoreAdapter;
+    List<GetAllProductsPojo> a1;
+    UserDashBoardAdapter userDashBoardAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dash_board);
-        getSupportActionBar().setTitle("User Dashboard");
+        getSupportActionBar().setTitle("Homa");
         navigationView();
 
         rv_cust_products=(RecyclerView)findViewById(R.id.rv_cust_products);
 
         a1 = new ArrayList<>();
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12529532/2020/10/13/ba5950c3-e148-43a7-a295-25dfc687b1931602590996414-United-Colors-of-Benetton-Men-Purple-Slim-Fit-Solid-Casual-S-6.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/6832572/2018/8/24/aa5fad0c-2e08-4fcb-9e36-4979251d22eb1535109119327-WROGN-Men-Red--Navy-Blue-Slim-Fit-Checked-Casual-Shirt-3891535109119109-4.jpg","HIGHLANDER","CAD. 1229","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11780922/2020/4/3/0fe1f83f-4a92-4a9e-ac95-3559e4b978e61585905004166HIGHLANDERMenWhiteGreySlimFitPrintedCasualShirt1.jpg","WROGN","CAD. 999","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/3/5/c0dba4a9-674d-425b-9da0-9d446157d1b21583362590845-1.jpg","Reebook","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/2/6/a34cb78a-5ddd-4645-9bd4-33a90c4622f31580943922465-1.jpg","Lives","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2478210/2019/11/8/85bba7bd-b3f3-4ea3-a063-5890340301471573214255868-WROGN-Men-Pink-Slim-Fit-Solid-Casual-Shirt-7431573214250598-1.jpg","PUMA","CAD. 799","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12529532/2020/10/13/ba5950c3-e148-43a7-a295-25dfc687b1931602590996414-United-Colors-of-Benetton-Men-Purple-Slim-Fit-Solid-Casual-S-6.jpg","Peter England","CAD. 1999","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/6832572/2018/8/24/aa5fad0c-2e08-4fcb-9e36-4979251d22eb1535109119327-WROGN-Men-Red--Navy-Blue-Slim-Fit-Checked-Casual-Shirt-3891535109119109-4.jpg","United Colors of Benetton","CAD. 2499","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11780922/2020/4/3/0fe1f83f-4a92-4a9e-ac95-3559e4b978e61585905004166HIGHLANDERMenWhiteGreySlimFitPrintedCasualShirt1.jpg","United Colors of Benetton","CAD. 1999","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/3/5/c0dba4a9-674d-425b-9da0-9d446157d1b21583362590845-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/2/6/a34cb78a-5ddd-4645-9bd4-33a90c4622f31580943922465-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2478210/2019/11/8/85bba7bd-b3f3-4ea3-a063-5890340301471573214255868-WROGN-Men-Pink-Slim-Fit-Solid-Casual-Shirt-7431573214250598-1.jpg","United Colors of Benetton","CAD. 1888","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12529532/2020/10/13/ba5950c3-e148-43a7-a295-25dfc687b1931602590996414-United-Colors-of-Benetton-Men-Purple-Slim-Fit-Solid-Casual-S-6.jpg","United Colors of Benetton","CAD. 1799","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/6832572/2018/8/24/aa5fad0c-2e08-4fcb-9e36-4979251d22eb1535109119327-WROGN-Men-Red--Navy-Blue-Slim-Fit-Checked-Casual-Shirt-3891535109119109-4.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11780922/2020/4/3/0fe1f83f-4a92-4a9e-ac95-3559e4b978e61585905004166HIGHLANDERMenWhiteGreySlimFitPrintedCasualShirt1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/3/5/c0dba4a9-674d-425b-9da0-9d446157d1b21583362590845-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/2/6/a34cb78a-5ddd-4645-9bd4-33a90c4622f31580943922465-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2478210/2019/11/8/85bba7bd-b3f3-4ea3-a063-5890340301471573214255868-WROGN-Men-Pink-Slim-Fit-Solid-Casual-Shirt-7431573214250598-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","Available")); a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12529532/2020/10/13/ba5950c3-e148-43a7-a295-25dfc687b1931602590996414-United-Colors-of-Benetton-Men-Purple-Slim-Fit-Solid-Casual-S-6.jpg","United Colors of Benetton","Rs. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/6832572/2018/8/24/aa5fad0c-2e08-4fcb-9e36-4979251d22eb1535109119327-WROGN-Men-Red--Navy-Blue-Slim-Fit-Checked-Casual-Shirt-3891535109119109-4.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11780922/2020/4/3/0fe1f83f-4a92-4a9e-ac95-3559e4b978e61585905004166HIGHLANDERMenWhiteGreySlimFitPrintedCasualShirt1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/3/5/c0dba4a9-674d-425b-9da0-9d446157d1b21583362590845-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2020/2/6/a34cb78a-5ddd-4645-9bd4-33a90c4622f31580943922465-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
-        a1.add(new AllClothsPojo("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2478210/2019/11/8/85bba7bd-b3f3-4ea3-a063-5890340301471573214255868-WROGN-Men-Pink-Slim-Fit-Solid-Casual-Shirt-7431573214250598-1.jpg","United Colors of Benetton","CAD. 1349","Men Purple Slim Fit Solid Casual Shirt","Purple solid casual shirt, has a mandarin collar, long sleeves, button placket, curved hem, and 1 patch pocket","ON Sale"));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false);
         rv_cust_products.setLayoutManager(linearLayoutManager);
+        serverData();
 
-        offersStoreAdapter=new OffersStoreAdapter(UserDashBoardActivity.this,a1);  //attach adapter class with therecyclerview
-        rv_cust_products.setAdapter(offersStoreAdapter);
+
     }
     private void navigationView(){
         dl = (DrawerLayout)findViewById(R.id.activity_main);
@@ -88,31 +72,37 @@ public class UserDashBoardActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case R.id.home:
+              /*      case R.id.home:
                         Intent home=new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(home);
-                        break;
+                        break;*/
 
                     case R.id.myprofile:
                         Intent myprofile=new Intent(getApplicationContext(), UserProfileActivity.class);
                         startActivity(myprofile);
                         break;
 
-                        case R.id.offers_store:
-                        Intent offers_store=new Intent(getApplicationContext(), OffersStoreActivity.class);
+                        case R.id.home:
+                        Intent offers_store=new Intent(getApplicationContext(), UserDashBoardActivity.class);
                         startActivity(offers_store);
                         break;
 
+                    case R.id.search_product:
+                        Intent search_product=new Intent(getApplicationContext(), SearchProductActivity.class);
+                        startActivity(search_product);
+                        break;
+
+
+
                         case R.id.my_cart:
-                        Intent my_cart=new Intent(getApplicationContext(), CustomersCartActivity.class);
+                        Intent my_cart=new Intent(getApplicationContext(), DisplaySQLiteDataActivity.class);
                         startActivity(my_cart);
                         break;
 
-                    case R.id.search:
-                        Intent search=new Intent(getApplicationContext(), SearchActivity.class);
-                        startActivity(search);
+                    case R.id.my_order:
+                        Intent my_order=new Intent(getApplicationContext(), MyOrdersActivity.class);
+                        startActivity(my_order);
                         break;
-
 
 
 
@@ -150,8 +140,33 @@ public class UserDashBoardActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void alertDiolouge(){
+    public void serverData(){
+        progressDialog = new ProgressDialog(UserDashBoardActivity.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+        ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
+        Call<List<GetAllProductsPojo>> call = service.get_allproducts();
+        call.enqueue(new Callback<List<GetAllProductsPojo>>() {
+            @Override
+            public void onResponse(Call<List<GetAllProductsPojo>> call, Response<List<GetAllProductsPojo>> response) {
+                progressDialog.dismiss();
+                if(response.body()==null){
+                    Toast.makeText(UserDashBoardActivity.this,"No data found",Toast.LENGTH_SHORT).show();
+                }else {
+                    a1=response.body();
+                    userDashBoardAdapter=new UserDashBoardAdapter(UserDashBoardActivity.this,a1);  //attach adapter class with therecyclerview
+                    rv_cust_products.setAdapter(userDashBoardAdapter);
+                }
+            }
 
+            @Override
+            public void onFailure(Call<List<GetAllProductsPojo>> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(UserDashBoardActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void alertDiolouge(){
         AlertDialog.Builder builder1 = new AlertDialog.Builder(UserDashBoardActivity.this);
         builder1.setTitle("Alert !!!");
         builder1.setMessage("Do you want to close the Application.");  //message we want to show the end user

@@ -11,7 +11,7 @@
         android:id="@+id/circ_image"
         android:background="@drawable/slash"
         android:layout_width="180dp"
-        android:layout_height="200dp" />
+        android:layout_height="100dp" />
 
 
     <TextView

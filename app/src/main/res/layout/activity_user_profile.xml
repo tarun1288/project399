@@ -16,11 +16,11 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_margin="@dimen/_15sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/slash" />
+            android:scaleType="fitXY" />
 
 
         <TextView
+            android:id="@+id/tv_name"
             android:layout_marginLeft="@dimen/_115sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="match_parent"
@@ -135,7 +135,7 @@
             android:padding="@dimen/_8sdp"
             android:textAllCaps="false"
             android:textSize="@dimen/_15sdp"
-            android:text="EDIT PROFILE"
+            android:text="Update Profile"
             android:textColor="@android:color/white"
             />
 

@@ -16,23 +16,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.clothing.R;
 import com.clothing.activities.SellerClothsDetailsActivity;
-import com.clothing.models.AllClothsPojo;
+import com.clothing.models.GetAllProductsPojo;
 
 import java.util.List;
 
 public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothessAdapter.MyviewHolder> {
 
     Context context;
-    List<AllClothsPojo> a1;
+    List<GetAllProductsPojo> a1;
     String session;
 
-    public AdminAllClothessAdapter(Context context, List<AllClothsPojo> categoty) {
+    public AdminAllClothessAdapter(Context context, List<GetAllProductsPojo> categoty) {
         this.context = context;
         this.a1 = categoty;
 
     }
 
-    public void setMovieList(List<AllClothsPojo> a1) {
+    public void setMovieList(List<GetAllProductsPojo> a1) {
         this.a1 = a1;
         notifyDataSetChanged();
     }
@@ -46,20 +46,22 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
     @Override
     public void onBindViewHolder(@NonNull MyviewHolder holder, final int pos) {
 
-        holder.tv_name.setText(a1.get(pos).getName());
+        holder.tv_name.setText(a1.get(pos).getProductname());
         holder.tv_price.setText(a1.get(pos).getPrice());
-        holder.tv_status.setText(a1.get(pos).getStatus());
-        Glide.with(context).load(a1.get(pos).getImage()).into(holder.image_view);
+        //holder.tv_status.setText(a1.get(pos).ge());
+        Glide.with(context).load(a1.get(pos).getPhoto()).into(holder.image_view);
 
         holder.image_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, SellerClothsDetailsActivity.class);
-                intent.putExtra("image",a1.get(pos).getImage());
-                intent.putExtra("name",a1.get(pos).getName());
+                intent.putExtra("image",a1.get(pos).getPhoto());
+                intent.putExtra("name",a1.get(pos).getProductname());
                 intent.putExtra("price",a1.get(pos).getPrice());
-                intent.putExtra("category",a1.get(pos).getCategory());
+                intent.putExtra("category",a1.get(pos).getCid());
                 intent.putExtra("description",a1.get(pos).getDescription());
+                intent.putExtra("quantity",a1.get(pos).getQuantity());
+                intent.putExtra("id",a1.get(pos).getPid());
                 context.startActivity(intent);
             }
         });

@@ -14,7 +14,7 @@
     <TextView
         android:id="@+id/tv_name"
         android:layout_toRightOf="@+id/image_view"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5ssp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_toRightOf="@+id/image_view"
         android:layout_below="@id/tv_name"
         android:textSize="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:text="Product Price"
         android:layout_width="match_parent"
@@ -37,11 +37,11 @@
 
     <TextView
         android:id="@+id/tv_status"
-        android:textColor="#CA3131"
+        android:textColor="#000"
         android:layout_toRightOf="@+id/image_view"
         android:layout_below="@id/tv_price"
         android:textSize="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:text="Sale 50% "
         android:layout_width="match_parent"

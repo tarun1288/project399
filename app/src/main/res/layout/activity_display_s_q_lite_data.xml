@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listView1"
+        android:divider="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:id="@+id/activity_display_sqlite_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_weight="0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:background="@drawable/buttons"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Total Price"
+            android:textColor="@android:color/white" />
+
+
+        <Button
+            android:id="@+id/btn_check_out"
+            android:layout_weight="0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:gravity="center"
+            android:background="@drawable/buttons"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Proceed To Checkout"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+<!--    <Button
+        android:id="@+id/btn_add_player"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:drawableLeft="@drawable/ic_add"
+        android:paddingLeft="@dimen/_20sdp"
+        android:background="@drawable/button_1"
+        android:text="Add Player"
+        android:textColor="#ffffff"
+        android:width="@dimen/_150sdp"
+        android:layout_alignParentBottom="true" />-->
+</RelativeLayout>
+
+
+
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_display_sqlite_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" >
+        </ListView>
+
+    </RelativeLayout>-->

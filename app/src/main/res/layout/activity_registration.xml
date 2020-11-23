@@ -69,8 +69,8 @@
             android:text="Date of Birth"
             android:gravity="center"
             android:padding="@dimen/_8sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:textSize="@dimen/_13sdp"
             android:layout_marginTop="@dimen/_6sdp"
             />
@@ -103,6 +103,18 @@
             android:textSize="19sp"
             />
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/input_design"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:entries="@array/role"
+            android:id="@+id/sp_role"/>
+
+
         <EditText
             android:id="@+id/et_password"
             android:backgroundTint="@color/colorPrimaryDark"
@@ -118,15 +130,18 @@
             />
         <Button
             android:id="@+id/btn_upload"
-            android:text="Upload Profile"
-            android:visibility="gone"
-            android:textAllCaps="false"
-            android:layout_below="@+id/et_pwd"
-            android:layout_centerInParent="true"
-            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_upload"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_65sdp"
+            android:layout_marginRight="@dimen/_65sdp"
             android:background="@drawable/buttons"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_40sdp" />
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_15sdp"
+            android:text="Upload Profile"
+            android:textColor="@android:color/white" />
 
 
         <Button

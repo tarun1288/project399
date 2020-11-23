@@ -43,7 +43,7 @@
         android:textSize="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginLeft="@dimen/_15sdp"
-        android:text="Product Price"
+        android:text="On Sale"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
