@@ -128,7 +128,7 @@ public class UserProfileActivity extends AppCompatActivity implements EasyPermis
 
         });
         progressDialog = new ProgressDialog(UserProfileActivity.this);
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Loading....");
         progressDialog.show();
 
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
@@ -234,7 +234,7 @@ public class UserProfileActivity extends AppCompatActivity implements EasyPermis
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                 progressDialog.dismiss();
                 Toast.makeText(UserProfileActivity.this, response.body().message, Toast.LENGTH_LONG).show();
-                startActivity(new Intent(UserProfileActivity.this,UserDashBoardActivity.class));
+                startActivity(new Intent(UserProfileActivity.this, UserDashBoardActivity.class));
                 finish();
             }
             @Override

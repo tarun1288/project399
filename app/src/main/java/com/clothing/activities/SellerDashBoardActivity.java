@@ -58,7 +58,7 @@ public class SellerDashBoardActivity extends AppCompatActivity {
         btn_add_product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SellerDashBoardActivity.this,AddProductActivity.class));
+                startActivity(new Intent(SellerDashBoardActivity.this, AddProductActivity.class));
             }
         });
 
@@ -67,8 +67,6 @@ public class SellerDashBoardActivity extends AppCompatActivity {
         all_cloths.setLayoutManager(linearLayoutManager);
 
         getAllProducts();
-
-
     }
 
     public void getAllProducts(){
@@ -125,6 +123,11 @@ public class SellerDashBoardActivity extends AppCompatActivity {
                     case R.id.add_cloths:
                         Intent add_cloths = new Intent(getApplicationContext(), AddProductActivity.class);
                         startActivity(add_cloths);
+                        break;
+
+                    case R.id.my_orders:
+                        Intent my_orders = new Intent(getApplicationContext(), SellerOrdersActivity.class);
+                        startActivity(my_orders);
                         break;
 
 

@@ -46,7 +46,7 @@ public class UserDashBoardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dash_board);
-        getSupportActionBar().setTitle("Homa");
+        getSupportActionBar().setTitle("Home");
         navigationView();
 
         rv_cust_products=(RecyclerView)findViewById(R.id.rv_cust_products);

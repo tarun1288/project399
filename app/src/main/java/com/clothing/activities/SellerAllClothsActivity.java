@@ -45,7 +45,7 @@ public class SellerAllClothsActivity extends AppCompatActivity {
         btn_add_product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SellerAllClothsActivity.this,AddProductActivity.class));
+                startActivity(new Intent(SellerAllClothsActivity.this, AddProductActivity.class));
             }
         });
 
@@ -86,7 +86,7 @@ public class SellerAllClothsActivity extends AppCompatActivity {
     }
     public void serverData(){
         progressDialog = new ProgressDialog(SellerAllClothsActivity.this);
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Loading....");
         progressDialog.show();
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<List<GetAllProductsPojo>> call = service.get_allproducts();

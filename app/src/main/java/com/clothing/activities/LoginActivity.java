@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_forget_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
             }
         });
 
@@ -131,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void sellerLogindata(){
         pd= new ProgressDialog(LoginActivity.this);
-        pd.setTitle("Loading....");
+        pd.setTitle("Loading...");
         pd.show();
         ApiService apiService = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<ResponseData> call = apiService.seller_login(et_email.getText().toString(),et_password.getText().toString(),str);
