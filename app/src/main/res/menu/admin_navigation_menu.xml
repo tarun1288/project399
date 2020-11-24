@@ -13,6 +13,10 @@
         android:icon="@drawable/ic_add"
         android:title="Add Cloths"/>
 
+    <item android:id="@+id/my_orders"
+        android:icon="@drawable/ic_my_orders"
+        android:title="My Orders"/>
+
     <item android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
         android:title="Logout"/>
