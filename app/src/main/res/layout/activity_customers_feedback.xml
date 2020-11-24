@@ -67,7 +67,7 @@
 
 
         <Button
-            android:id="@+id/btn_confirm"
+            android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_upload"
@@ -78,7 +78,7 @@
             android:padding="@dimen/_8sdp"
             android:textAllCaps="false"
             android:textSize="@dimen/_15sdp"
-            android:text="Confirm"
+            android:text="Submit"
             android:textColor="@android:color/white"
             />
 
