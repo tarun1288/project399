@@ -19,7 +19,7 @@ public class ConfirmationPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation_page);
 
 
-        getSupportActionBar().setTitle("Confirmation Page");
+        getSupportActionBar().setTitle("Confirmation Page.");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
