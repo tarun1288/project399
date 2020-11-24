@@ -73,7 +73,7 @@ public class SellerProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(SellerProfileActivity.this,EditProfileActivity.class));
-                Intent intent=new Intent(SellerProfileActivity.this,EditProfileActivity.class);
+                Intent intent=new Intent(SellerProfileActivity.this, EditProfileActivity.class);
                 intent.putExtra("name",name);
                 intent.putExtra("email",email);
                 intent.putExtra("gender",gender);
@@ -89,7 +89,7 @@ public class SellerProfileActivity extends AppCompatActivity {
 
     public void editprofile(){
         progressDialog = new ProgressDialog(SellerProfileActivity.this);
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Loading....");
         progressDialog.show();
 
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);

@@ -78,6 +78,13 @@ public interface ApiService {
             @Query("oid") String oid
     );
 
+    @GET("/fashionstore/add_feedback.php?")
+    Call<ResponseData> add_feedback(
+            @Query("name") String name,
+            @Query("price") String price,
+            @Query("description") String description
+    );
+
     @GET("/fashionstore/get_user_profile.php?")
     Call<List<EditProfilePojo>> get_user_profile(
             @Query("uname") String uname
@@ -109,6 +116,14 @@ public interface ApiService {
             @Query("id") String id
 
     );
+
+   @GET("/fashionstore/updateorderstats.php")
+   Call<ResponseData> updateorderstats(
+           @Query("id") String id
+
+   );
+
+
 
     @GET("/fashionstore/forgotpassword.php")
     Call<ResponseData> forgotpassword(@Query("emailid") String emailid);

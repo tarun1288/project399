@@ -50,7 +50,6 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
     ArrayList<String> Product_Quantity;
     ArrayList<String> User_name;
     ArrayList<String> Product_ID;
-
     TextView tv_total_price;
 
     ArrayList<String> ListViewClickItemArray = new ArrayList<String>();
@@ -125,7 +124,7 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
         sqLiteDatabase = sqLiteHelper.getWritableDatabase();
 
-        cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+SQLiteHelper.TABLE_NAME+" where username='"+uname+"'", null);
+        cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+ SQLiteHelper.TABLE_NAME+" where username='"+uname+"'", null);
 
         ID_Array.clear();
         NAME_Array.clear();
@@ -233,7 +232,7 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
                 if (response.body().status.equals("true")) {
                     Toast.makeText(DisplaySQLiteDataActivity.this, response.body().message, Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(DisplaySQLiteDataActivity.this,UserDashBoardActivity.class));
+                    startActivity(new Intent(DisplaySQLiteDataActivity.this, UserDashBoardActivity.class));
                     finish();
 
                 } else {
@@ -251,7 +250,7 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
     private void deletedata(){
         OpenSQLiteDataBase();
-        SQLiteDataBaseQueryHolder = "DELETE FROM "+SQLiteHelper.TABLE_NAME+" WHERE username = \'"+uname+"\'";
+        SQLiteDataBaseQueryHolder = "DELETE FROM "+ SQLiteHelper.TABLE_NAME+" WHERE username = \'"+uname+"\'";
 
         sqLiteDatabase.execSQL(SQLiteDataBaseQueryHolder);
         sqLiteDatabase.close();

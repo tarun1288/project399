@@ -16,6 +16,7 @@
         android:roundIcon="@drawable/slash"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.SellerOrdersActivity"></activity>
         <activity android:name=".activities.MyOrderStatusActivity"></activity>
         <activity android:name=".activities.MyOrdersActivity" />
         <activity android:name=".activities.SearchProductActivity" />

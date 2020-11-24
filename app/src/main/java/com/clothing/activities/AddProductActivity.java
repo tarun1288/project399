@@ -134,14 +134,13 @@ public class AddProductActivity extends AppCompatActivity implements EasyPermiss
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_GALLERY_CODE && resultCode == Activity.RESULT_OK) {
+        if(requestCode == REQUEST_GALLERY_CODE && resultCode == Activity.RESULT_OK){
             uri = data.getData();
-            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            if(EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 String filePath = getRealPathFromURIPath(uri, AddProductActivity.this);
                 file = new File(filePath);
 
-            } else {
+            }else{
                 EasyPermissions.requestPermissions(this, getString(R.string.read_file), READ_REQUEST_CODE, Manifest.permission.READ_EXTERNAL_STORAGE);
             }
         }
@@ -195,7 +194,7 @@ public class AddProductActivity extends AppCompatActivity implements EasyPermiss
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                 pd.dismiss();
                 Toast.makeText(AddProductActivity.this, response.body().message, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(AddProductActivity.this, SellerDashBoardActivity.class);
+                Intent intent=new Intent(AddProductActivity.this,SellerDashBoardActivity.class);
                 startActivity(intent);
                 finish();
             }
