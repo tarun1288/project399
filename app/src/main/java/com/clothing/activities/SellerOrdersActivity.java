@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
 import com.clothing.Utils;
-import com.clothing.adapters.SellerOrdersAdapter;
 import com.clothing.api.ApiService;
 import com.clothing.api.RetroClient;
 import com.clothing.models.MyOrdersPojo;
