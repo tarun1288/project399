@@ -66,6 +66,25 @@
             />
 
 
+        <TextView
+            android:text="Rate us"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RatingBar
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_gravity="center"
+            android:id="@+id/rv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:saveEnabled="true"
+            android:numStars="5"/>
+
+
+
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
@@ -81,6 +100,8 @@
             android:text="Submit"
             android:textColor="@android:color/white"
             />
+
+
 
     </LinearLayout>
 </ScrollView>

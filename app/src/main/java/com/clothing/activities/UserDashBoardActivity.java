@@ -2,11 +2,16 @@ package com.clothing.activities;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
+import com.clothing.Utils;
 import com.clothing.adapters.UserDashBoardAdapter;
 import com.clothing.api.ApiService;
 import com.clothing.api.RetroClient;
@@ -26,6 +32,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,6 +48,9 @@ public class UserDashBoardActivity extends AppCompatActivity {
     RecyclerView rv_cust_products;
     List<GetAllProductsPojo> a1;
     UserDashBoardAdapter userDashBoardAdapter;
+    EditText et_search;
+    SQLiteDatabase sqLiteDatabaseObj;
+    String SQLiteDataBaseQueryHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +63,36 @@ public class UserDashBoardActivity extends AppCompatActivity {
 
         a1 = new ArrayList<>();
 
+        sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
+        session = sharedPreferences.getString("user_uname", "def-val");
+
+        et_search=(EditText)findViewById(R.id.et_search);
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+                String text = et_search.getText().toString().toLowerCase(Locale.getDefault());
+                userDashBoardAdapter.productFilter(text);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+        });
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false);
         rv_cust_products.setLayoutManager(linearLayoutManager);
         serverData();
 
 
     }
+
     private void navigationView(){
         dl = (DrawerLayout)findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
@@ -72,10 +106,10 @@ public class UserDashBoardActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-              /*      case R.id.home:
-                        Intent home=new Intent(getApplicationContext(), MainActivity.class);
+                    case R.id.fav_product:
+                        Intent home=new Intent(getApplicationContext(), FavoriteProductsActiviy.class);
                         startActivity(home);
-                        break;*/
+                        break;
 
                     case R.id.myprofile:
                         Intent myprofile=new Intent(getApplicationContext(), UserProfileActivity.class);
@@ -88,7 +122,7 @@ public class UserDashBoardActivity extends AppCompatActivity {
                         break;
 
                     case R.id.search_product:
-                        Intent search_product=new Intent(getApplicationContext(), SearchProductActivity.class);
+                        Intent search_product=new Intent(getApplicationContext(), AdvSearch.class);
                         startActivity(search_product);
                         break;
 
@@ -145,7 +179,7 @@ public class UserDashBoardActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading....");
         progressDialog.show();
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
-        Call<List<GetAllProductsPojo>> call = service.get_allproducts();
+        Call<List<GetAllProductsPojo>> call = service.getallproductsfav(session);
         call.enqueue(new Callback<List<GetAllProductsPojo>>() {
             @Override
             public void onResponse(Call<List<GetAllProductsPojo>> call, Response<List<GetAllProductsPojo>> response) {
@@ -154,7 +188,7 @@ public class UserDashBoardActivity extends AppCompatActivity {
                     Toast.makeText(UserDashBoardActivity.this,"No data found",Toast.LENGTH_SHORT).show();
                 }else {
                     a1=response.body();
-                    userDashBoardAdapter=new UserDashBoardAdapter(UserDashBoardActivity.this,a1);  //attach adapter class with therecyclerview
+                    userDashBoardAdapter=new UserDashBoardAdapter(UserDashBoardActivity.this,a1,session);  //attach adapter class with therecyclerview
                     rv_cust_products.setAdapter(userDashBoardAdapter);
                 }
             }

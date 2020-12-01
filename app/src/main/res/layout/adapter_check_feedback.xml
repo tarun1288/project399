@@ -9,32 +9,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<LinearLayout
+<RelativeLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_margin="@dimen/_7sdp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/iv_iamgeview"
+        android:scaleType="fitXY"
+        android:src="@drawable/slash"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"/>
+
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_toRightOf="@+id/image_view"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_toRightOf="@+id/iv_iamgeview"
         android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" Name"
+        android:text="Name"
         android:textColor="#000"
         android:textSize="@dimen/_12sdp" />
 
     <TextView
         android:id="@+id/tv_email"
         android:textColor="#000"
-        android:layout_toRightOf="@+id/image_view"
+        android:layout_toRightOf="@+id/iv_iamgeview"
         android:layout_below="@id/tv_name"
         android:textSize="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:text="Email"
         android:layout_width="match_parent"
@@ -43,15 +50,31 @@
 
     <TextView
         android:id="@+id/tv_reason"
-        android:textColor="#CA3131"
-        android:layout_toRightOf="@+id/image_view"
-        android:layout_below="@id/tv_price"
+        android:textColor="#000"
+        android:layout_toRightOf="@+id/iv_iamgeview"
+        android:layout_below="@id/tv_email"
         android:textSize="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:text="Reason "
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</LinearLayout>
+    <RatingBar
+        android:id="@+id/listitemrating"
+        style="@android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_iamgeview"
+        android:layout_below="@id/tv_reason"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        android:isIndicator="true"
+        android:max="5" />
+
+</RelativeLayout>
 </androidx.cardview.widget.CardView>

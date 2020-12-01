@@ -23,7 +23,7 @@
                 android:id="@+id/image_view"
                 android:layout_width="match_parent"
                 android:scaleType="fitXY"
-                android:layout_height="@dimen/_300sdp" />
+                android:layout_height="@dimen/_200sdp" />
 
             <TextView
                 android:id="@+id/tv_name"

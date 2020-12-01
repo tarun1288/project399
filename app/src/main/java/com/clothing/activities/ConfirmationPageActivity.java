@@ -2,16 +2,13 @@ package com.clothing.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.clothing.R;
 
 public class ConfirmationPageActivity extends AppCompatActivity {
-    Button btn_give_feedback;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,22 +16,35 @@ public class ConfirmationPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation_page);
 
 
-        getSupportActionBar().setTitle("Confirmation Page.");
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Confirmation Page");
+      /*  getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
-        btn_give_feedback=(Button)findViewById(R.id.btn_give_feedback);
-        btn_give_feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ConfirmationPageActivity.this,CustomersFeedbackActivity.class));
+        final int ScreenDisplay = 1500;
+        Thread t1=new Thread(){
+            int wait1=0;
+            public void run(){
+                try{
+                    while(wait1<=ScreenDisplay )
+                    {
+                        sleep(100);
+                        wait1+=100;
+                    }
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+                finally{
+                    Intent intentg= new Intent(ConfirmationPageActivity.this, UserDashBoardActivity.class);
+                    startActivity(intentg);
+                    finish();
+
+                }
             }
-        });
-
-
-
+        };
+        t1.start();
     }
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -43,5 +53,5 @@ public class ConfirmationPageActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 }

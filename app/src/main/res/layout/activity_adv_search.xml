@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AdvancedSearchActivity">
+
+    <TextView
+        android:id="@+id/tv_price_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="false"
+        android:fontFamily="sans-serif-black"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:singleLine="true"
+        android:drawablePadding="@dimen/_3sdp" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="false"
+        android:text="Choose Price"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_gravity="center"
+        android:singleLine="true"
+        android:drawablePadding="@dimen/_3sdp" />
+
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_15sdp"/>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/login_edittext"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:drawablePadding="@dimen/_3sdp"
+        android:hint="Product Name" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_below="@+id/et_password"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/buttons"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Submit"
+        android:textColor="@android:color/white" />
+
+
+
+
+
+</LinearLayout>
