@@ -1,6 +1,5 @@
 package com.clothing.api;
 
-import com.clothing.models.AllClothsPojo;
 import com.clothing.models.CategoryPojo;
 import com.clothing.models.EditProfilePojo;
 import com.clothing.models.FeedbackPojo;
@@ -77,7 +76,7 @@ public interface ApiService {
 
 
     @GET("/fashionstore/getmyorders.php")
-    Call<List<MyOrdersPojo>> getmyorders( @Query("email") String email);
+    Call<List<MyOrdersPojo>> getmyorders(@Query("email") String email);
 
 
     @GET("/fashionstore/add_cart.php?")
