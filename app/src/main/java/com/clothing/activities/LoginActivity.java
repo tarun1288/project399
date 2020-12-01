@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void userLogindata(){
         pd= new ProgressDialog(LoginActivity.this);
-        pd.setTitle("Loading....");
+        pd.setTitle("Loading...");
         pd.show();
         ApiService apiService = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<ResponseData> call = apiService.userLogin(et_email.getText().toString(),et_password.getText().toString(),str);
