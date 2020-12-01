@@ -61,7 +61,7 @@ public class SellerOrdersActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading....");
         progressDialog.show();
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
-        Call<List<MyOrdersPojo>> call = service.getmyorders(session);
+        Call<List<MyOrdersPojo>> call = service.getallorders();
         call.enqueue(new Callback<List<MyOrdersPojo>>() {
             @Override
             public void onResponse(Call<List<MyOrdersPojo>> call, Response<List<MyOrdersPojo>> response) {

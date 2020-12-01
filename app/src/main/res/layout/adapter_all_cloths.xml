@@ -35,16 +35,19 @@
         android:layout_height="wrap_content" />
 
 
-    <TextView
-        android:id="@+id/tv_status"
-        android:textColor="#CA3131"
-        android:layout_toRightOf="@+id/image_view"
-        android:layout_below="@id/tv_price"
-        android:textSize="@dimen/_13sdp"
+    <Button
+        android:id="@+id/btn_reviews"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_below="@+id/tv_price"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:text="On Sale"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:background="@drawable/button_1"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Reviews"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

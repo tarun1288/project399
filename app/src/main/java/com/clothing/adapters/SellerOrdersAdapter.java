@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
-import com.clothing.activities.MyOrderStatusActivity;
+import com.clothing.activities.SellerOrderStatusActivity;
 import com.clothing.models.MyOrdersPojo;
 
 import java.util.List;
@@ -51,7 +51,7 @@ public class SellerOrdersAdapter extends RecyclerView.Adapter<SellerOrdersAdapte
         holder.cv_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context, MyOrderStatusActivity.class);
+                Intent intent=new Intent(context, SellerOrderStatusActivity.class);
                 intent.putExtra("order_ID",a1.get(pos).getOrder_id());
                 context.startActivity(intent);
             }

@@ -145,13 +145,14 @@ public class RegistrationActivity extends AppCompatActivity implements EasyPermi
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQUEST_GALLERY_CODE && resultCode == Activity.RESULT_OK){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_GALLERY_CODE && resultCode == Activity.RESULT_OK) {
             uri = data.getData();
-            if(EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 String filePath = getRealPathFromURIPath(uri, RegistrationActivity.this);
                 file = new File(filePath);
 
-            }else{
+            } else {
                 EasyPermissions.requestPermissions(this, getString(R.string.read_file), READ_REQUEST_CODE, Manifest.permission.READ_EXTERNAL_STORAGE);
             }
         }
@@ -206,7 +207,7 @@ public class RegistrationActivity extends AppCompatActivity implements EasyPermi
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                 pd.dismiss();
                 Toast.makeText(RegistrationActivity.this, response.body().message, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(RegistrationActivity.this,LoginActivity.class);
+                Intent intent=new Intent(RegistrationActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
             @Override

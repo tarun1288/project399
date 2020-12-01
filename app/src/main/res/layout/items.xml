@@ -77,11 +77,10 @@
 
 
     <ImageView
-        android:visibility="gone"
         android:id="@+id/image_delete"
         android:src="@drawable/ic_delete"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_100sdp"
+        android:layout_marginLeft="@dimen/_140sdp"
         android:layout_toRightOf="@+id/image_view"
         android:layout_below="@+id/tv_description"
         android:layout_width="@dimen/_30sdp"
@@ -93,98 +92,3 @@
 
 
 
-    <!--
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <TextView
-            android:id="@+id/textViewID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView1"
-            android:layout_alignBottom="@+id/textView1"
-            android:layout_toRightOf="@+id/textView1"
-            android:text="UserID"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-
-
-        <TextView
-            android:id="@+id/textViewNAME"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewID"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="Name"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-        <TextView
-            android:id="@+id/textprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewID"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="textprice"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-        <TextView
-            android:id="@+id/textcategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewID"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="textcategory"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-        <TextView
-            android:id="@+id/textDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewID"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="textDescription"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-
-        <TextView
-            android:id="@+id/textTotalPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewID"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="textDescription"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-
-
-        <TextView
-            android:id="@+id/textQuantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewID"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="textDescription"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#050505" />
-
-
-
-        <ImageView
-            android:id="@+id/imageview"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"/>
-
-
-
-
-    </LinearLayout>-->

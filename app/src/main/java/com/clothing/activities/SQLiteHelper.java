@@ -10,6 +10,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME="FashionClothingTable";
 
+
+
     public static final String Table_Column_ID="id";
     public static final String Table_Column_1_Name="name";
     public static final String Table_Column_2_Price="price";
@@ -32,6 +34,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+Table_Column_ID+" INTEGER PRIMARY KEY, "+Table_Column_1_Name+" VARCHAR, "+Table_Column_2_Price+" VARCHAR," +
                 " "+Table_Column_3_Category+" VARCHAR, "+Table_Column_4_Description+" VARCHAR, "+Table_Column_5_Photo+" VARCHAR, "+Table_Column_6_Total_price+" VARCHAR, "+Table_Column_7_Quantity+" VARCHAR, "+Table_Column_8_Username+" VARCHAR,"+Table_Column_9_ProductID+" VARCHAR)";
+
         database.execSQL(CREATE_TABLE);
 
     }

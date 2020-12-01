@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ public class CustomersFeedbackActivity extends AppCompatActivity {
     Button btn_submit;
     SharedPreferences sharedPreferences;
     String session;
+    RatingBar rv_rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +43,23 @@ public class CustomersFeedbackActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(Utils.SHREF, Context.MODE_PRIVATE);
         session = sharedPreferences.getString("user_uname", "def-val");
 
+          rv_rating = findViewById(R.id.rv_rating);
+
+
         et_reason=(EditText)findViewById(R.id.et_reason);
         et_email=(EditText)findViewById(R.id.et_email);
         et_email.setText(session);
         et_name=(EditText)findViewById(R.id.et_name);
+        et_name.setText(getIntent().getStringExtra("pname"));
 
         btn_submit=(Button)findViewById(R.id.btn_submit);
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                surverSubmit();
+
+            }
+        });
 
 
     }
@@ -53,15 +67,10 @@ public class CustomersFeedbackActivity extends AppCompatActivity {
     private void surverSubmit(){
 
         ApiService apiService = RetroClient.getRetrofitInstance().create(ApiService.class);
-        Call<ResponseData> call = apiService.add_feedback(et_name.getText().toString(),et_reason.getText().toString(),et_email.getText().toString());
-        //Call<ResponseData> call = apiService.add_cart(name,price,"ewewe","2","fffdf","mens","2343","teee",pid);
-
-
+        Call<ResponseData> call = apiService.add_feedback(getIntent().getStringExtra("pid"),getIntent().getStringExtra("pname"),session, String.valueOf(rv_rating.getRating()),et_reason.getText().toString());
         call.enqueue(new Callback<ResponseData>() {
             @Override
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
-
-
                 if (response.body().status.equals("true")) {
                     Toast.makeText(CustomersFeedbackActivity.this, response.body().message, Toast.LENGTH_LONG).show();
                     startActivity(new Intent(CustomersFeedbackActivity.this, UserDashBoardActivity.class));

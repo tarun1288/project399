@@ -125,13 +125,14 @@ public class EditMyClothsActivity extends AppCompatActivity implements EasyPermi
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQUEST_GALLERY_CODE && resultCode == Activity.RESULT_OK){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_GALLERY_CODE && resultCode == Activity.RESULT_OK) {
             uri = data.getData();
-            if(EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 String filePath = getRealPathFromURIPath(uri, EditMyClothsActivity.this);
                 file = new File(filePath);
 
-            }else{
+            } else {
                 EasyPermissions.requestPermissions(this, getString(R.string.read_file), READ_REQUEST_CODE, Manifest.permission.READ_EXTERNAL_STORAGE);
             }
         }
