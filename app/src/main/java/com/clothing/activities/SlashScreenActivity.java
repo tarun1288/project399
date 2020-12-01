@@ -22,7 +22,7 @@ public class SlashScreenActivity extends AppCompatActivity {
                 try{
                     while(wait1<=ScreenDisplay )
                     {
-                        sleep(1000);
+                        sleep(2000);
                         wait1+=100;
                     }
                 }
