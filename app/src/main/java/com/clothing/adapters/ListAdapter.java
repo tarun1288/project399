@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.clothing.R;
+import com.clothing.activities.DisplaySQLiteDataActivity;
 import com.clothing.activities.SQLiteHelper;
 
 import java.util.ArrayList;
@@ -83,9 +84,6 @@ public class ListAdapter extends BaseAdapter {
             holder.tv_category = (TextView) child.findViewById(R.id.tv_category);
             holder.tv_description = (TextView) child.findViewById(R.id.tv_description);
             holder.tv_total = (TextView) child.findViewById(R.id.tv_total);
-           // holder.textDescription = (TextView) child.findViewById(R.id.textDescription);
-            //holder.textTotalPrice = (TextView) child.findViewById(R.id.textTotalPrice);
-            //holder.textQuantity = (TextView) child.findViewById(R.id.textQuantity);
             holder.image_view = (ImageView) child.findViewById(R.id.image_view);
             holder.image_delete = (ImageView) child.findViewById(R.id.image_delete);
 
@@ -95,21 +93,22 @@ public class ListAdapter extends BaseAdapter {
 
             holder = (Holder) child.getTag();
         }
-        //holder.tv_name.setText(ID.get(position));
         holder.tv_name.setText(Name.get(position));
-        holder.tv_price.setText(Price.get(position));
+        holder.tv_price.setText(Price.get(position)+" CAD");
         holder.tv_category.setText(User_name.get(position));
         holder.tv_description.setText(Description.get(position));
         holder.tv_total.setText("Total "+Price.get(position)+" * "+Quantity.get(position) +" = "+Total_price.get(position));
-        //holder.textQuantity.setText(Quantity.get(position));
-       // holder.textTotalPrice.setText(Total_price.get(position));
        Glide.with(context).load(Image.get(position)).into(holder.image_view);
-       holder.image_delete.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        holder.image_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
+                ((DisplaySQLiteDataActivity) context).deleatesingleproduct(ID.get(position));
+
+
+            }
+        });
+
 
         return child;
     }

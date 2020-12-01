@@ -64,7 +64,7 @@ public class SellerProfileActivity extends AppCompatActivity {
         tv_check_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SellerProfileActivity.this,CheckFeedbacksActivity.class));
+                startActivity(new Intent(SellerProfileActivity.this, CheckFeedbacksActivity.class));
             }
         });
 

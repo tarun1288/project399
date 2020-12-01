@@ -1,10 +1,12 @@
 package com.clothing.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.clothing.R;
+import com.clothing.activities.CustomersFeedbackActivity;
 import com.clothing.models.MyOrderStatusPojo;
 
 import java.util.List;
@@ -44,13 +47,25 @@ public class MyOrderStatusAdapter extends RecyclerView.Adapter<MyOrderStatusAdap
     public void onBindViewHolder(@NonNull MyviewHolder holder, final int pos) {
 
         holder.tv_product_name.setText("Name:"+a1.get(pos).getName());
-        holder.tv_product_price.setText("Price:"+a1.get(pos).getPrice());
+        holder.tv_product_price.setText("Price:"+a1.get(pos).getPrice()+" CAD");
         holder.tv_description.setText(a1.get(pos).getDescription());
         holder.tv_order_id.setText("OrderID  #:"+a1.get(pos).getOrder_id());
         holder.tv_order_status.setText("Order Status  :"+a1.get(pos).getStatus());
         holder.tv_order_date.setText("Order Date:"+a1.get(pos).getOrder_date());
 
         Glide.with(context).load(a1.get(pos).getPhoto()).into(holder.image_view);
+
+        holder.btn_rate_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, CustomersFeedbackActivity.class);
+                intent.putExtra("pid",a1.get(pos).getId());
+                intent.putExtra("pname",a1.get(pos).getName());
+                context.startActivity(intent);
+            }
+        });
+
+
 
 
 
@@ -69,6 +84,7 @@ public class MyOrderStatusAdapter extends RecyclerView.Adapter<MyOrderStatusAdap
     public class MyviewHolder extends RecyclerView.ViewHolder {
         TextView tv_product_name,tv_product_price,tv_description,tv_order_id,tv_order_date,tv_order_status;
         ImageView image_view;
+        Button btn_rate_now;
 
         public MyviewHolder(View itemView) {
             super(itemView);
@@ -84,6 +100,8 @@ public class MyOrderStatusAdapter extends RecyclerView.Adapter<MyOrderStatusAdap
             tv_order_status=(TextView)itemView.findViewById(R.id.tv_order_status);
 
             image_view=(ImageView)itemView.findViewById(R.id.image_view);
+
+            btn_rate_now=(Button)itemView.findViewById(R.id.btn_rate_now);
 
 
 

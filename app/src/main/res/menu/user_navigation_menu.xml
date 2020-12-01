@@ -15,6 +15,10 @@
         android:icon="@drawable/ic_search"
         android:title="Search Products"/>
 
+    <item android:id="@+id/fav_product"
+        android:icon="@drawable/ic_heart1"
+        android:title="Fav Products"/>
+
     <item android:id="@+id/my_cart"
         android:icon="@drawable/ic_cart"
         android:title="My Cart"/>

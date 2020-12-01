@@ -27,7 +27,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ShippingAddressActivity.this, PaymentPageActivity.class));
+                startActivity(new Intent(ShippingAddressActivity.this,PaymentPageActivity.class));
             }
         });
 

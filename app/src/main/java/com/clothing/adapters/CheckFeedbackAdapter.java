@@ -5,31 +5,31 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.clothing.R;
-import com.clothing.models.FeedbackPojo;
+import com.clothing.models.ProductFeedbackPojo;
 
 import java.util.List;
 
 public class CheckFeedbackAdapter extends RecyclerView.Adapter<CheckFeedbackAdapter.MyviewHolder> {
 
     Context context;
-    List<FeedbackPojo> a1;
+    List<ProductFeedbackPojo> a1;
     String session;
 
-    public CheckFeedbackAdapter(Context context, List<FeedbackPojo> categoty) {
+    public CheckFeedbackAdapter(Context context, List<ProductFeedbackPojo> categoty) {
         this.context = context;
         this.a1 = categoty;
 
     }
 
-    public void setMovieList(List<FeedbackPojo> a1) {
+    public void setMovieList(List<ProductFeedbackPojo> a1) {
         this.a1 = a1;
         notifyDataSetChanged();
     }
@@ -47,6 +47,8 @@ public class CheckFeedbackAdapter extends RecyclerView.Adapter<CheckFeedbackAdap
         holder.tv_email.setText(a1.get(pos).getEmail());
         holder.tv_reason.setText(a1.get(pos).getReason());
 
+        holder.listitemrating.setRating(Float.parseFloat(a1.get(pos).getRating()));
+
     }
 
     @Override
@@ -61,7 +63,7 @@ public class CheckFeedbackAdapter extends RecyclerView.Adapter<CheckFeedbackAdap
     public class MyviewHolder extends RecyclerView.ViewHolder {
         TextView tv_name,tv_email,tv_reason;
         ImageView image_view;
-        Button btn_add_to_cart;
+        RatingBar listitemrating;
 
 
         public MyviewHolder(View itemView) {
@@ -74,6 +76,7 @@ public class CheckFeedbackAdapter extends RecyclerView.Adapter<CheckFeedbackAdap
             tv_email=(TextView)itemView.findViewById(R.id.tv_email);
             tv_reason=(TextView)itemView.findViewById(R.id.tv_reason);
 
+            listitemrating=(RatingBar)itemView.findViewById(R.id.listitemrating);
 
             Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/Lato-Medium.ttf");
             tv_email.setTypeface(custom_font);

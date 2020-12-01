@@ -36,6 +36,7 @@
 
     <string-array name="order_status">
         <item>Update Order Status</item>
+        <item>Order Processing</item>
         <item>Order Confirmed</item>
         <item>Order Rejected</item>
         <item>Order Delivered</item>

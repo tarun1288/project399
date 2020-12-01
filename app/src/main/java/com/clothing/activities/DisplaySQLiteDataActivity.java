@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -95,20 +94,6 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
         oid= r.nextInt(100 - 5) + 5;
         OrderID="FS"+oid;
 
-        LISTVIEW.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // TODO Auto-generated method stub
-
-              /*  Intent intent = new Intent(getApplicationContext(),ShowSingleRecordActivity.class);
-
-                intent.putExtra("ListViewClickedItemValue", ListViewClickItemArray.get(position).toString());
-
-                startActivity(intent);*/
-            }
-        });
 
     }
 
@@ -222,7 +207,6 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
         ApiService apiService = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<ResponseData> call = apiService.add_cart(name,priceamount,description,quantity,photo,category,totalprice,uname,pid,OrderID);
-        //Call<ResponseData> call = apiService.add_cart(name,price,"ewewe","2","fffdf","mens","2343","teee",pid);
 
 
         call.enqueue(new Callback<ResponseData>() {
@@ -232,8 +216,8 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
                 if (response.body().status.equals("true")) {
                     Toast.makeText(DisplaySQLiteDataActivity.this, response.body().message, Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(DisplaySQLiteDataActivity.this, UserDashBoardActivity.class));
-                    finish();
+                    startActivity(new Intent(DisplaySQLiteDataActivity.this, ConfirmationPageActivity.class));
+                    //finish();
 
                 } else {
                     Toast.makeText(DisplaySQLiteDataActivity.this, response.body().message, Toast.LENGTH_LONG).show();
@@ -265,4 +249,16 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
         sqLiteDatabaseObj = openOrCreateDatabase(SQLiteHelper.DATABASE_NAME, Context.MODE_PRIVATE, null);
 
     }
+    public void deleatesingleproduct(String productid){
+
+        OpenSQLiteDataBase();
+        SQLiteDataBaseQueryHolder = "DELETE FROM "+ SQLiteHelper.TABLE_NAME+" WHERE id = \'"+productid+"\'";
+        sqLiteDatabase.execSQL(SQLiteDataBaseQueryHolder);
+        sqLiteDatabase.close();
+
+        Intent refresh = new Intent(this, DisplaySQLiteDataActivity.class);
+        startActivity(refresh);//Start the same Activity
+        finish();
+    }
+
 }

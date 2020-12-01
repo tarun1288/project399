@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.clothing.R;
+import com.clothing.activities.CheckFeedbacksActivity;
 import com.clothing.activities.SellerClothsDetailsActivity;
 import com.clothing.models.GetAllProductsPojo;
 
@@ -47,9 +48,19 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
     public void onBindViewHolder(@NonNull MyviewHolder holder, final int pos) {
 
         holder.tv_name.setText(a1.get(pos).getProductname());
-        holder.tv_price.setText(a1.get(pos).getPrice());
-        //holder.tv_status.setText(a1.get(pos).ge());
+        holder.tv_price.setText(a1.get(pos).getPrice()+ " CAD");
         Glide.with(context).load(a1.get(pos).getPhoto()).into(holder.image_view);
+
+        holder.btn_reviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, CheckFeedbacksActivity.class);
+                intent.putExtra("pid",a1.get(pos).getPid());
+                context.startActivity(intent);
+
+
+            }
+        });
 
         holder.image_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +88,9 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
     }
 
     public class MyviewHolder extends RecyclerView.ViewHolder {
-        TextView tv_name,tv_price,tv_status;
+        TextView tv_name,tv_price;
         ImageView image_view;
-        Button btn_edit;
+        Button btn_reviews;
 
 
         public MyviewHolder(View itemView) {
@@ -90,11 +101,11 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
 
             tv_name=(TextView)itemView.findViewById(R.id.tv_name);
             tv_price=(TextView)itemView.findViewById(R.id.tv_price);
-            tv_status=(TextView)itemView.findViewById(R.id.tv_status);
+
+            btn_reviews=(Button)itemView.findViewById(R.id.btn_reviews);
 
             Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/Lato-Medium.ttf");
             tv_price.setTypeface(custom_font);
-            tv_status.setTypeface(custom_font);
 
 
             Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/Lato-Semibold.ttf");

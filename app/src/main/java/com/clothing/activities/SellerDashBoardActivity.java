@@ -24,6 +24,7 @@ import com.clothing.adapters.AdminAllClothessAdapter;
 import com.clothing.api.ApiService;
 import com.clothing.api.RetroClient;
 import com.clothing.models.GetAllProductsPojo;
+import com.clothing.models.ProductFeedbackPojo;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class SellerDashBoardActivity extends AppCompatActivity {
     String session;
     RecyclerView all_cloths;
     List<GetAllProductsPojo> a1;
+    List<ProductFeedbackPojo> a2;
     AdminAllClothessAdapter adminAllClothessAdapter;
     Button btn_add_product;
     ProgressDialog pd;
@@ -193,4 +195,6 @@ public class SellerDashBoardActivity extends AppCompatActivity {
         AlertDialog alert11 = builder1.create();
         alert11.show();
     }
+
+
 }

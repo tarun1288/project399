@@ -95,21 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Spinner
-            android:id="@+id/spin_update_status"
-            android:singleLine="true"
-            android:layout_below="@+id/tv_description"
-            android:background="@drawable/input_design"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/order_status"
-            android:padding="@dimen/_7sdp"
-            android:scrollbars="none"
-            android:spinnerMode="dropdown"/>
+
 
 
     </RelativeLayout>

@@ -20,12 +20,6 @@ public class GetAllProductsPojo {
     @SerializedName("price")
     public String price;
 
-    @SerializedName("productname")
-    public String productname;
-
-    @SerializedName("quantity")
-    public String quantity;
-
     public String getCid() {
         return cid;
     }
@@ -82,6 +76,22 @@ public class GetAllProductsPojo {
         this.quantity = quantity;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getSeller_email() {
         return seller_email;
     }
@@ -89,6 +99,19 @@ public class GetAllProductsPojo {
     public void setSeller_email(String seller_email) {
         this.seller_email = seller_email;
     }
+
+    @SerializedName("productname")
+    public String productname;
+
+    @SerializedName("quantity")
+    public String quantity;
+
+    @SerializedName("status")
+    public String status;
+
+    @SerializedName("email")
+    public String email;
+
 
     @SerializedName("seller_email")
     public String seller_email;

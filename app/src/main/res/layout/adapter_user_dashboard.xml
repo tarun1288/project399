@@ -5,7 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <ImageView
+        android:layout_alignParentRight="true"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="@drawable/ic_heart1"
+        android:id="@+id/iv_fav"
+        android:layout_width="25dp"
+        android:layout_height="25dp" />
+
+    <ImageView
+        android:layout_below="@+id/iv_fav"
         android:id="@+id/image_view"
         android:layout_width="@dimen/_130sdp"
         android:scaleType="fitXY"
@@ -14,6 +25,7 @@
     <TextView
         android:id="@+id/tv_name"
         android:layout_toRightOf="@+id/image_view"
+        android:layout_below="@+id/iv_fav"
         android:layout_marginTop="@dimen/_5ssp"
         android:layout_marginLeft="@dimen/_8sdp"
         android:layout_width="match_parent"
@@ -48,10 +60,24 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btn_reviews"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_below="@+id/image_view"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:background="@drawable/button_1"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Reviews"
+        android:textColor="@android:color/white" />
+
+    <Button
         android:id="@+id/btn_buy_now"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_28sdp"
-        android:layout_below="@+id/tv_desc"
+        android:layout_below="@+id/image_view"
         android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -61,5 +87,7 @@
         android:textSize="18sp"
         android:text="Buy Now"
         android:textColor="@android:color/white" />
+
+
 
 </RelativeLayout>
