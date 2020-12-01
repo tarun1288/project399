@@ -82,7 +82,7 @@ public class SellerClothsDetailsActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     public void serverData(String id){
         progressDialog = new ProgressDialog(SellerClothsDetailsActivity.this);
-        progressDialog.setMessage("Loading....");
+        progressDialog.setMessage("Loading...");
         progressDialog.show();
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
         Call<ResponseData> call = service.delete_product(id);
