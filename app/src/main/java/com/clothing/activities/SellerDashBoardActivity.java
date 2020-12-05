@@ -60,7 +60,7 @@ public class SellerDashBoardActivity extends AppCompatActivity {
         btn_add_product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SellerDashBoardActivity.this, AddProductActivity.class));
+                startActivity(new Intent(SellerDashBoardActivity.this,AddProductActivity.class));
             }
         });
 

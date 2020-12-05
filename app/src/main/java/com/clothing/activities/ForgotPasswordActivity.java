@@ -70,7 +70,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                 if (response.body().message.equals("true")) {
                     Toast.makeText(ForgotPasswordActivity.this, response.body().message, Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+                    Intent intent=new Intent(ForgotPasswordActivity.this,LoginActivity.class);
                     startActivity(intent);
                     //Log.i("msg", "" + response.body().message);
                     finish();

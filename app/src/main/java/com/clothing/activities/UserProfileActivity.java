@@ -128,7 +128,7 @@ public class UserProfileActivity extends AppCompatActivity implements EasyPermis
 
         });
         progressDialog = new ProgressDialog(UserProfileActivity.this);
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Loading....");
         progressDialog.show();
 
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
