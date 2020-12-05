@@ -33,7 +33,7 @@ public class CheckFeedbacksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_feedbacks);
 
-        getSupportActionBar().setTitle(" Feedbacks");
+        getSupportActionBar().setTitle("Feedbacks");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
