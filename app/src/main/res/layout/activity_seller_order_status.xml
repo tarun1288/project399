@@ -27,6 +27,13 @@
     <Button
         android:id="@+id/btn_updatestatus"
         android:gravity="center"
+        android:background="#2196F3"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="2dp"
         android:text="Update Status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

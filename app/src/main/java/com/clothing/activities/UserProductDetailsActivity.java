@@ -21,7 +21,7 @@ import com.clothing.R;
 import com.clothing.Utils;
 
 public class UserProductDetailsActivity extends AppCompatActivity {
-    TextView tv_name,tv_price,tv_des,tv_category;
+    TextView tv_name,tv_price,tv_des,tv_category,tv_available;
     ImageView image_view;
     Button btn_add_to_cart,btn_go_to_cart;
     SQLiteDatabase sqLiteDatabaseObj;
@@ -50,6 +50,7 @@ public class UserProductDetailsActivity extends AppCompatActivity {
         tv_price=(TextView)findViewById(R.id.tv_price);
         tv_des=(TextView)findViewById(R.id.tv_des);
         tv_category=(TextView)findViewById(R.id.tv_category);
+        tv_available=(TextView)findViewById(R.id.tv_available);
         btn_add_to_cart=(Button)findViewById(R.id.btn_add_to_cart);
         btn_go_to_cart=(Button)findViewById(R.id.btn_go_to_cart);
 
@@ -71,7 +72,7 @@ public class UserProductDetailsActivity extends AppCompatActivity {
         tv_name.setText(getIntent().getStringExtra("name"));
         tv_price.setText(getIntent().getStringExtra("price"));
         tv_category.setText(getIntent().getStringExtra("category"));
-        //tv_des.setText("Description  :"+"\n"+getIntent().getStringExtra("description"));
+        tv_available.setText("Available Count :"+getIntent().getStringExtra("available_count"));
         tv_des.setText("Description  :"+getIntent().getStringExtra("description"));
 
         btn_add_to_cart.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +119,7 @@ public class UserProductDetailsActivity extends AppCompatActivity {
     private  int isExsitingProduct(){
         sqLiteDatabase = sqLiteHelper.getWritableDatabase();
 
-        cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+ SQLiteHelper.TABLE_NAME+" where productid ='"+getIntent().getStringExtra("pid")+"' and username='"+user_name+"'", null);
+        cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+SQLiteHelper.TABLE_NAME+" where productid ='"+getIntent().getStringExtra("pid")+"' and username='"+user_name+"'", null);
         //Toast.makeText(this, ""+cursor.getCount(), Toast.LENGTH_SHORT).show();
         return cursor.getCount();
     }

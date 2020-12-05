@@ -31,9 +31,9 @@ public class AdvSearch extends AppCompatActivity {
         et_name=(EditText)findViewById(R.id.et_name);
 
         SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar);
-        seekBar.setProgress(1000);
-        seekBar.incrementProgressBy(1000);
-        seekBar.setMax(10000);
+        seekBar.setProgress(0);
+        seekBar.incrementProgressBy(10);
+        seekBar.setMax(100);
         tv_price_range=(TextView)findViewById(R.id.tv_price_range);
         tv_price=(TextView)findViewById(R.id.tv_price);
 
@@ -41,13 +41,13 @@ public class AdvSearch extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progress = progress / 1000;
-                progress = progress * 1000;
+                progress = progress / 10;
+                progress = progress * 10;
                 //Toast.makeText(getContext(), ""+progress, Toast.LENGTH_SHORT).show();
                 tv_price_range.setText(String.valueOf(progress));
                 tv_price.setText(String.valueOf(progress));
 
-                tv_price_range.setText("Selected Range is : "+String.valueOf(progress)+"$");
+                tv_price_range.setText("Selected Range is In Between 0$ - "+String.valueOf(progress)+"$");
             }
 
             @Override

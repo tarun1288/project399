@@ -109,7 +109,7 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
         sqLiteDatabase = sqLiteHelper.getWritableDatabase();
 
-        cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+ SQLiteHelper.TABLE_NAME+" where username='"+uname+"'", null);
+        cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+SQLiteHelper.TABLE_NAME+" where username='"+uname+"'", null);
 
         ID_Array.clear();
         NAME_Array.clear();
@@ -234,7 +234,7 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
 
     private void deletedata(){
         OpenSQLiteDataBase();
-        SQLiteDataBaseQueryHolder = "DELETE FROM "+ SQLiteHelper.TABLE_NAME+" WHERE username = \'"+uname+"\'";
+        SQLiteDataBaseQueryHolder = "DELETE FROM "+SQLiteHelper.TABLE_NAME+" WHERE username = \'"+uname+"\'";
 
         sqLiteDatabase.execSQL(SQLiteDataBaseQueryHolder);
         sqLiteDatabase.close();
@@ -252,7 +252,7 @@ public class DisplaySQLiteDataActivity extends AppCompatActivity {
     public void deleatesingleproduct(String productid){
 
         OpenSQLiteDataBase();
-        SQLiteDataBaseQueryHolder = "DELETE FROM "+ SQLiteHelper.TABLE_NAME+" WHERE id = \'"+productid+"\'";
+        SQLiteDataBaseQueryHolder = "DELETE FROM "+SQLiteHelper.TABLE_NAME+" WHERE id = \'"+productid+"\'";
         sqLiteDatabase.execSQL(SQLiteDataBaseQueryHolder);
         sqLiteDatabase.close();
 
