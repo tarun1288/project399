@@ -89,7 +89,7 @@ public class SellerProfileActivity extends AppCompatActivity {
 
     public void editprofile(){
         progressDialog = new ProgressDialog(SellerProfileActivity.this);
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Loading....");
         progressDialog.show();
 
         ApiService service = RetroClient.getRetrofitInstance().create(ApiService.class);
