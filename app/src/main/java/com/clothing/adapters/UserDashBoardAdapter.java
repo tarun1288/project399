@@ -110,6 +110,7 @@ public class UserDashBoardAdapter extends RecyclerView.Adapter<UserDashBoardAdap
                 intent.putExtra("category",a1.get(pos).getCid());
                 intent.putExtra("description",a1.get(pos).getDescription());
                 intent.putExtra("pid",a1.get(pos).getPid());
+                intent.putExtra("available_count",a1.get(pos).getAvailable_count());
                 context.startActivity(intent);
             }
         });

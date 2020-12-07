@@ -49,6 +49,16 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
 
         holder.tv_name.setText(a1.get(pos).getProductname());
         holder.tv_price.setText(a1.get(pos).getPrice()+ " CAD");
+
+        if(Integer.parseInt(a1.get(pos).getAvailable_count())<1)
+        {
+            holder.tv_quantity.setText("Sold Out");
+        }
+        else
+        {
+            holder.tv_quantity.setText("Remaing Stock : "+a1.get(pos).getAvailable_count());
+        }
+
         Glide.with(context).load(a1.get(pos).getPhoto()).into(holder.image_view);
 
         holder.btn_reviews.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +98,7 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
     }
 
     public class MyviewHolder extends RecyclerView.ViewHolder {
-        TextView tv_name,tv_price;
+        TextView tv_name,tv_price,tv_quantity;
         ImageView image_view;
         Button btn_reviews;
 
@@ -101,6 +111,7 @@ public class AdminAllClothessAdapter extends RecyclerView.Adapter<AdminAllClothe
 
             tv_name=(TextView)itemView.findViewById(R.id.tv_name);
             tv_price=(TextView)itemView.findViewById(R.id.tv_price);
+            tv_quantity=(TextView)itemView.findViewById(R.id.tv_quantity);
 
             btn_reviews=(Button)itemView.findViewById(R.id.btn_reviews);
 

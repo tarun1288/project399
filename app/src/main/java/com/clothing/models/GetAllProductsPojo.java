@@ -116,4 +116,14 @@ public class GetAllProductsPojo {
     @SerializedName("seller_email")
     public String seller_email;
 
+    @SerializedName("available_count")
+    public String available_count;
+
+    public String getAvailable_count() {
+        return available_count;
+    }
+
+    public void setAvailable_count(String available_count) {
+        this.available_count = available_count;
+    }
 }
